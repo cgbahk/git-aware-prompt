@@ -21,7 +21,7 @@ find_git_dirty() {
 }
 
 # TODO add clock
-if [ -f /.dockerenv  ]; then
+if [[ -n $DOCKER_PROMPT ]]; then
   export PS1="\n\[$bakred\] docker \[$txtrst\] \[$txtblk\][\u@\h]\[$txtrst\] \w # "
 else
   PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
